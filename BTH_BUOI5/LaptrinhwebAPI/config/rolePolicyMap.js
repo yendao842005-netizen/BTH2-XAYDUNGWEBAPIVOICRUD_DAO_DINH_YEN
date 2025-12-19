@@ -1,0 +1,50 @@
+import { POLICIES } from "../utils/constants/policies.js";
+
+export const rolePolicyMap = {
+  Admin: [
+    POLICIES.USER_VIEW_ALL,
+    POLICIES.USER_DELETE,
+
+    // Quyền Sinh Viên cho Admin (Full quyền)
+    POLICIES.SINHVIEN_VIEW_ALL,
+    POLICIES.SINHVIEN_VIEW_ONE,
+    POLICIES.SINHVIEN_CREATE,
+    POLICIES.SINHVIEN_UPDATE,
+    POLICIES.SINHVIEN_DELETE,
+
+    // --- QUYỀN LỚP HỌC (ADMIN FULL) ---
+    POLICIES.LOPHOC_VIEW_ALL,
+    POLICIES.LOPHOC_VIEW_ONE,
+    POLICIES.LOPHOC_CREATE,
+    POLICIES.LOPHOC_UPDATE,
+    POLICIES.LOPHOC_DELETE,
+
+    // --- QUYỀN GIÁO VIÊN (ADMIN FULL) ---
+    POLICIES.GIAOVIEN_VIEW_ALL,
+    POLICIES.GIAOVIEN_VIEW_ONE,
+    POLICIES.GIAOVIEN_CREATE,
+    POLICIES.GIAOVIEN_UPDATE,
+    POLICIES.GIAOVIEN_DELETE,
+  ],
+  User: [
+    POLICIES.USER_VIEW_SELF,
+
+    // Quyền Sinh Viên cho User (Bị giới hạn)
+    POLICIES.SINHVIEN_VIEW_ALL, // Được xem tất cả
+    POLICIES.SINHVIEN_VIEW_ONE, // Được xem theo mã
+    POLICIES.SINHVIEN_CREATE,   // Được thêm
+
+
+    // --- QUYỀN LỚP HỌC (USER BỊ HẠN CHẾ) ---
+    POLICIES.LOPHOC_VIEW_ALL, // Được xem danh sách
+    POLICIES.LOPHOC_VIEW_ONE, // Được xem chi tiết
+    POLICIES.LOPHOC_CREATE,   // Được thêm mới
+    
+
+    // --- QUYỀN GIÁO VIÊN (USER BỊ HẠN CHẾ) ---
+    POLICIES.GIAOVIEN_VIEW_ALL,
+    POLICIES.GIAOVIEN_VIEW_ONE,
+    POLICIES.GIAOVIEN_CREATE,
+    
+  ]
+};
